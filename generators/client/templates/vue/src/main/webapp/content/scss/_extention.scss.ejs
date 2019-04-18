@@ -1,0 +1,50 @@
+@for $i from 1 through 4 {
+  .lighten-#{$i} {
+    color: lighten($body-color, percentage($i * 1.8 / 10));
+  }
+}
+
+@for $i from 1 through 5 {
+  @each $breakpoint in map-keys($grid-breakpoints) {
+    @include media-breakpoint-up($breakpoint) {
+      $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+      .bigger#{$infix}-#{$i} {
+        font-size: percentage(($i * 2 / 10)  + 1);
+      }
+    }
+  }
+}
+
+$size-level: 50px;
+@for $i from 1 through 10 {
+  .size-#{$i} {
+    @include size($i * $size-level);
+  }
+  .sizew-#{$i} {
+    width: $i * $size-level;
+  }
+}
+
+@for $i from 1 through 4 {
+  .rounded-#{$i} {
+    border-radius: $i * 5px;
+  }
+}
+
+@for $i from 1 through 9 {
+  .mw-#{$i}00 {
+    max-width: $i * 100px;
+  }
+}
+
+@for $i from 1 through 9 {
+  .miw-#{$i}00 {
+    min-width: $i * 100px;
+  }
+}
+
+@for $i from 1 through 9 {
+  .darken-#{$i*5} {
+    color: darken($primary, $i*5%);
+  }
+}

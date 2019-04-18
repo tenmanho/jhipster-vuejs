@@ -78,6 +78,8 @@ const vueFiles = {
                 { file: 'content/images/jhipster_family_member_1_head-512.png', method: 'copy' },
                 { file: 'content/images/jhipster_family_member_2_head-512.png', method: 'copy' },
                 { file: 'content/images/jhipster_family_member_3_head-512.png', method: 'copy' },
+                { file: 'content/images/home-bg.png', method: 'copy' },
+                { file: 'content/images/logo-dark.svg', method: 'copy' },
                 { file: 'content/images/logo-jhipster.png', method: 'copy' }
             ]
         }
@@ -93,7 +95,7 @@ const vueFiles = {
     sass: [
         {
             path: MAIN_SRC_DIR,
-            templates: ['content/scss/_bootstrap-variables.scss', 'content/scss/global.scss', 'content/scss/vendor.scss']
+            templates: ['content/scss/_bootstrap-variables.scss', 'content/scss/global.scss', 'content/scss/vendor.scss', 'content/scss/_extention.scss']
         },
         {
             condition: generator => generator.enableI18nRTL,

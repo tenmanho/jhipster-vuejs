@@ -1,7 +1,9 @@
 <template>
-    <div id="footer" class="footer">
-        <p v-text="$t('footer')">This is your footer</p>
+  <footer class="footer fixed-bottom text-white bg-dark">
+    <div class="py-2 d-flex justify-content-center">
+      Copyright © 2019 <span v-text="$t('global.title')"><%= baseName %></span> All rights reserved.
     </div>
+  </footer>
 </template>
 
 <script lang="ts" src="./jhi-footer.component.ts">

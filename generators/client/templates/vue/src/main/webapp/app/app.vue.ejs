@@ -1,11 +1,11 @@
 <template>
   <div id="app">
-    <ribbon></ribbon>
+<!--    <ribbon></ribbon>-->
     <div id="app-header">
       <jhi-navbar></jhi-navbar>
     </div>
-    <div class="container-fluid">
-      <div class="card jh-card">
+    <div class="container">
+      <div class="jh-card">
         <router-view></router-view>
       </div>
       <%_ if (authenticationType !== 'oauth2') { _%>
