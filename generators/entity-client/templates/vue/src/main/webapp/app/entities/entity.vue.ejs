@@ -134,22 +134,22 @@
                     </td>
                         <%_ } _%>
                     <%_ } _%>
-                    <td class="text-right">
+                    <td class="text-right" width="20%">
                         <div class="btn-group flex-btn-group-container">
-                            <router-link :to="{name: '<%= entityAngularName %>View', params: {<%= entityInstance %>Id: <%= entityInstance %>.id}}" tag="button" class="btn btn-info btn-sm details">
+                            <router-link :to="{name: '<%= entityAngularName %>View', params: {<%= entityInstance %>Id: <%= entityInstance %>.id}}" tag="button" class="btn btn-outline-secondary details">
                                 <font-awesome-icon icon="eye"></font-awesome-icon>
-                                <span class="d-none d-md-inline" v-text="$t('entity.action.view')">View</span>
+<!--                                <span class="d-none d-md-inline" v-text="$t('entity.action.view')">View</span>-->
                             </router-link>
-                            <router-link :to="{name: '<%= entityAngularName %>Edit', params: {<%= entityInstance %>Id: <%= entityInstance %>.id}}"  tag="button" class="btn btn-primary btn-sm edit">
+                            <router-link :to="{name: '<%= entityAngularName %>Edit', params: {<%= entityInstance %>Id: <%= entityInstance %>.id}}"  tag="button" class="btn btn-outline-secondary edit">
                                 <font-awesome-icon icon="pencil-alt"></font-awesome-icon>
-                                <span class="d-none d-md-inline" v-text="$t('entity.action.edit')">Edit</span>
+<!--                                <span class="d-none d-md-inline" v-text="$t('entity.action.edit')">Edit</span>-->
                             </router-link>
                             <b-button v-on:click="prepareRemove(<%= entityInstance %>)"
-                                   variant="danger"
-                                   class="btn btn-sm"
+                                   variant="outline-secondary"
+                                   class="btn"
                                    v-b-modal.removeEntity>
                                 <font-awesome-icon icon="times"></font-awesome-icon>
-                                <span class="d-none d-md-inline" v-text="$t('entity.action.delete')">Delete</span>
+<!--                                <span class="d-none d-md-inline" v-text="$t('entity.action.delete')">Delete</span>-->
                             </b-button>
                         </div>
                     </td>

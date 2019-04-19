@@ -27,7 +27,7 @@
                     <th><span v-text="$t('userManagement.profiles')">Profiles</span></th>
                     <%_ if (databaseType !== 'cassandra') { _%>
                     <th v-on:click="changeOrder('createdDate')"><span v-text="$t('userManagement.createdDate')">Created Date</span> <font-awesome-icon icon="sort"></font-awesome-icon></th>
-                    <th v-on:click="changeOrder('lastModifiedBy')"><span v-text="$t('userManagement.lastModifiedBy')">Last Modified By</span> <font-awesome-icon icon="sort"></font-awesome-icon></th>
+<!--                    <th v-on:click="changeOrder('lastModifiedBy')"><span v-text="$t('userManagement.lastModifiedBy')">Last Modified By</span> <font-awesome-icon icon="sort"></font-awesome-icon></th>-->
                     <th id="modified-date-sort" v-on:click="changeOrder('lastModifiedDate')"><span v-text="$t('userManagement.lastModifiedDate')">Last Modified Date</span> <font-awesome-icon icon="sort"></font-awesome-icon></th>
                     <%_ } _%>
                     <th></th>
@@ -39,39 +39,39 @@
                         <td>{{user.login}}</td>
                         <td class="jhi-user-email">{{user.email}}</td>
                         <td>
-                            <button class="btn btn-danger btn-sm deactivated" v-on:click="setActive(user, true)" v-if="!user.activated"
-                                    v-text="$t('userManagement.deactivated')">Deactivated</button>
-                            <button class="btn btn-success btn-sm" v-on:click="setActive(user, false)" v-if="user.activated"
-                                    :disabled="username === user.login" v-text="$t('userManagement.activated')">Activated</button>
+                          <button class="btn p-1 btn-outline-danger btn-sm deactivated" v-on:click="setActive(user, true)" v-if="!user.activated"
+                                  v-text="$t('userManagement.deactivated')">Deactivated</button>
+                          <button class="btn p-1 btn-outline-success btn-sm" v-on:click="setActive(user, false)" v-if="user.activated"
+                                  :disabled="username === user.login" v-text="$t('userManagement.activated')">Activated</button>
                         </td>
                         <% if (enableTranslation) { %><td>{{user.langKey}}</td><% } %>
                         <td>
                             <div v-for="authority of user.authorities" :key="authority">
-                                <span class="badge badge-info">{{ authority }}</span>
+                                <span class="small">{{ authority }}</span>
                             </div>
                         </td>
                         <%_ if (databaseType !== 'cassandra') { _%>
                         <td>{{user.createdDate | formatDate}}</td>
-                        <td>{{user.lastModifiedBy}}</td>
+<!--                        <td>{{user.lastModifiedBy}}</td>-->
                         <td>{{user.lastModifiedDate | formatDate}}</td>
                         <%_ } _%>
                         <td class="text-right">
                             <div class="btn-group flex-btn-group-container">
-                                <router-link :to="{name: '<%= jhiPrefixCapitalized %>UserView', params: {userId: user.login}}" tag="button" class="btn btn-info btn-sm details">
+                                <router-link :to="{name: '<%= jhiPrefixCapitalized %>UserView', params: {userId: user.login}}" tag="button" class="btn btn-outline-secondary details">
                                     <font-awesome-icon icon="eye"></font-awesome-icon>
-                                    <span class="d-none d-md-inline" v-text="$t('entity.action.view')">View</span>
+<!--                                    <span class="d-none d-md-inline" v-text="$t('entity.action.view')">View</span>-->
                                 </router-link>
-                                <router-link :to="{name: '<%= jhiPrefixCapitalized %>UserEdit', params: {userId: user.login}}"  tag="button" class="btn btn-primary btn-sm edit">
+                                <router-link :to="{name: '<%= jhiPrefixCapitalized %>UserEdit', params: {userId: user.login}}"  tag="button" class="btn btn-outline-secondary edit">
                                     <font-awesome-icon icon="pencil-alt"></font-awesome-icon>
-                                    <span class="d-none d-md-inline" v-text="$t('entity.action.edit')">Edit</span>
+<!--                                    <span class="d-none d-md-inline" v-text="$t('entity.action.edit')">Edit</span>-->
                                 </router-link>
                                 <b-button v-on:click="prepareRemove(user)"
-                                       variant="danger"
-                                       class="btn btn-sm delete"
+                                       variant="outline-secondary"
+                                       class="delete"
                                        :disabled="username === user.login"
                                        v-b-modal.removeUser>
                                     <font-awesome-icon icon="times"></font-awesome-icon>
-                                    <span class="d-none d-md-inline" v-text="$t('entity.action.delete')">Delete</span>
+<!--                                    <span class="d-none d-md-inline" v-text="$t('entity.action.delete')">Delete</span>-->
                                 </b-button>
                             </div>
                         </td>
@@ -86,10 +86,10 @@
         </div>
         <%_ if (databaseType !== 'cassandra') { _%>
         <div v-if="users">
-            <div class="row justify-content-center">
+            <div class="row justify-content-end">
                 <jhi-item-count :page="page" :total="queryCount" :itemsPerPage="itemsPerPage"></jhi-item-count>
             </div>
-            <div class="row justify-content-center">
+            <div class="row justify-content-end">
                 <b-pagination size="md" :total-rows="totalItems" v-model="page" :per-page="itemsPerPage" :change="loadPage(page)"></b-pagination>
             </div>
         </div>
